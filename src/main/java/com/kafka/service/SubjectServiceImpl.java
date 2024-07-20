@@ -1,7 +1,7 @@
 package com.kafka.service;
 
-
 import com.kafka.entity.Subject;
+import com.kafka.producer.KafkaProducer;
 import com.kafka.repository.SubjectRepository;
 import com.kafka.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +13,20 @@ import java.util.List;
 public class SubjectServiceImpl implements SubjectService {
 
     private final SubjectRepository subjectRepository;
+    private final KafkaProducer kafkaProducer;
+
 
     @Autowired
-    public SubjectServiceImpl(SubjectRepository subjectRepository) {
+    public SubjectServiceImpl(SubjectRepository subjectRepository, KafkaProducer kafkaProducer) {
         this.subjectRepository = subjectRepository;
+        this.kafkaProducer = kafkaProducer;
     }
 
     @Override
     public Subject createSubject(Subject subject) {
-        return subjectRepository.save(subject);
+        Subject createdSubject = subjectRepository.save(subject);
+        kafkaProducer.sendMessage("subject-topic", createdSubject);
+        return createdSubject;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.kafka.controller;
 
-
 import com.kafka.entity.Subject;
 import com.kafka.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;

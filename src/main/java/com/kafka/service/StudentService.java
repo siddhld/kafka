@@ -9,6 +9,6 @@ public interface StudentService {
     List<Student> getAllStudents();
     Student updateStudent(Long id, Student studentDetails);
     String deleteStudent(Long id);
-    Student enrollStudentInSubject(Long studentId, Long subjectId);
-    Student registerStudentForExam(Long studentId, Long examId);
+    Student enrollStudentInSubject(Long registrationId, Long subjectId);
+    Student registerStudentForExam(Long registrationId, Long examId);
 }

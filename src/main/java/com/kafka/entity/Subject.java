@@ -1,12 +1,16 @@
 package com.kafka.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import java.util.Set;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "subjects")
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Subject {
 
     @Id
@@ -17,5 +21,6 @@ public class Subject {
     private String name;
 
     @ManyToMany(mappedBy = "enrolledSubjects")
-    private Set<Student> registeredStudents;
+    @JsonIgnore
+    private List<Student> registeredStudents;
 }

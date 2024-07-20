@@ -49,15 +49,15 @@ public class StudentController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/{studentId}/enroll/{subjectId}")
-    public ResponseEntity<Student> enrollStudentInSubject(@PathVariable Long studentId, @PathVariable Long subjectId) {
-        Student enrolledStudent = studentService.enrollStudentInSubject(studentId, subjectId);
+    @PostMapping("/{registrationId}/enroll/{subjectId}")
+    public ResponseEntity<Student> enrollStudentInSubject(@PathVariable Long registrationId, @PathVariable Long subjectId) {
+        Student enrolledStudent = studentService.enrollStudentInSubject(registrationId, subjectId);
         return ResponseEntity.ok(enrolledStudent);
     }
 
-    @PostMapping("/{studentId}/register/{examId}")
-    public ResponseEntity<Student> registerStudentForExam(@PathVariable Long studentId, @PathVariable Long examId) {
-        Student registeredStudent = studentService.registerStudentForExam(studentId, examId);
+    @PostMapping("/{registrationId}/register/{examId}")
+    public ResponseEntity<Student> registerStudentForExam(@PathVariable Long registrationId, @PathVariable Long examId) {
+        Student registeredStudent = studentService.registerStudentForExam(registrationId, examId);
         return ResponseEntity.ok(registeredStudent);
     }
 }

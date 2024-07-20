@@ -1,20 +1,21 @@
 package com.kafka.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import java.util.Set;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "students")
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long studentId;
-
-    @Column(unique = true, nullable = false)
-    private String registrationId;
+    private Long registrationId;
 
     @Column(nullable = false)
     private String name;
@@ -22,16 +23,18 @@ public class Student {
     @ManyToMany
     @JoinTable(
             name = "student_subject_enrollment",
-            joinColumns = @JoinColumn(name = "student_id"),
+            joinColumns = @JoinColumn(name = "registration_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
-    private Set<Subject> enrolledSubjects;
+    @ToString.Exclude
+    private List<Subject> enrolledSubjects;
 
     @ManyToMany
     @JoinTable(
             name = "student_exam_registration",
-            joinColumns = @JoinColumn(name = "student_id"),
+            joinColumns = @JoinColumn(name = "registration_id"),
             inverseJoinColumns = @JoinColumn(name = "exam_id")
     )
-    private Set<Exam> registeredExams;
+    @ToString.Exclude
+    private List<Exam> registeredExams;
 }

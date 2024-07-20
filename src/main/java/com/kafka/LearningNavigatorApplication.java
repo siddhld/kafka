@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NavigatorApplication {
+public class LearningNavigatorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NavigatorApplication.class, args);
+		SpringApplication.run(LearningNavigatorApplication.class, args);
 	}
 
 }
