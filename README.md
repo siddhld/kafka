@@ -1,14 +1,16 @@
-# Learning Navigator - Exam Enrollment API With KAFKA Integrated
+Student Management System with Kafka Integration
 
-This project implements a RESTful API service using Spring Boot for managing the exam enrollment process in a Learning Management System (LMS). It uses MySQL for persistent data storage.
+## Overview
+
+This project is a Student Management System built with Spring Boot and integrated with Apache Kafka for event streaming. It provides RESTful APIs for managing students, subjects, and exams, with real-time event publishing for data changes.
 
 ## Features
 
 - CRUD operations for Students, Subjects, and Exams.
+- Kafka integration for real-time event streaming
 - Foreign key relationships between entities.
 - Validation for student enrollment in a subject before exam registration.
 - Global error handling with appropriate HTTP status codes.
-- Basic unit tests using MockMvc and Mockito.
 
 ## Technologies
 
