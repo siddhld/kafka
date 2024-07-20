@@ -1,4 +1,4 @@
-# Learning Navigator - Exam Enrollment API
+# Learning Navigator - Exam Enrollment API With KAFKA Integrated
 
 This project implements a RESTful API service using Spring Boot for managing the exam enrollment process in a Learning Management System (LMS). It uses MySQL for persistent data storage.
 
